@@ -3,8 +3,15 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from app.settings import settings
 
-# Entry point to the database. This is the engine that will be used to connect to the database.
-engine = create_engine(settings.database_url, pool_pre_ping=True)
+
+""" Create a new engine for the given database URL.
+Now both testing and normal engines will have the same configuration
+but they will be separate instances."""
+def make_engine(database_url: str):
+    return create_engine(database_url, pool_pre_ping=True)
+
+# Create the engine for the normal database (none-test).
+engine = make_engine(settings.database_url)
 
 # Not a session, but a factory for sessions ^^
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
