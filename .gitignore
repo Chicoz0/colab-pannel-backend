@@ -1,3 +1,7 @@
 venv
 .env
 HANDOFF.md
+
+# Python / pytest caches (regeneráveis, nunca versionar)
+__pycache__/
+.pytest_cache/
