@@ -1,6 +1,6 @@
 from sqlalchemy import text
 
-from app.database import get_db
+from app.db.session import get_db
 
 
 def _one_session():

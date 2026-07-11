@@ -3,8 +3,8 @@ from alembic.autogenerate import compare_metadata
 from alembic.config import Config
 from alembic.runtime.migration import MigrationContext
 
-from app.database import Base, make_engine
-from app.settings import ROOT, settings
+from app.db.base import Base, make_engine
+from app.core.config import ROOT, settings
 import app.models  # noqa: F401  -> registers the models on Base.metadata
 
 

@@ -3,8 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 import app.models  # noqa: F401  -> registers the models on Base.metadata
-from app.database import Base, make_engine
-from app.settings import settings
+from app.db.base import Base, make_engine
+from app.core.config import settings
 
 test_engine = make_engine(settings.test_database_url)
 TestSessionLocal = sessionmaker(bind=test_engine, autoflush=False)
